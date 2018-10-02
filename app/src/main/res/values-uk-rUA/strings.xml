@@ -1,8 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">PointSlicer</string>
     <string name="input_present_value_view">Будь ласка, вкажіть суму продажів на дату</string>
     <string name="input_total_value_view">Вкаєіть місячний план продажів</string>
-    <string name="empty"> </string>
     <string name="calculate">Порахувати</string>
     <string name="toast">ку-ку!</string>
 </resources>
