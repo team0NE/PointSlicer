@@ -20,7 +20,7 @@ public class CalcActivity extends Activity{
     private int totSale;
     private int presentDate;
     private int amountOfDays;
-    private int SalesPerDay;
+    private int salesPerDay;
     private int mDateSales;
 
     @Override
@@ -31,25 +31,24 @@ public class CalcActivity extends Activity{
         mPresentSale = findViewById(R.id.presentSalesAmount);
         mTotalSale = findViewById(R.id.totalSalesAmount);
         mButton = findViewById(R.id.calculate);
+        mButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                preSale = Integer.parseInt(mPresentSale.getText().toString());
+                totSale = Integer.parseInt(mTotalSale.getText().toString());
 
-        onClick();
-    }
+                presentDate = Calendar.getInstance().get(Calendar.DATE);
+                amountOfDays = Calendar.getInstance().getActualMaximum(Calendar.DAY_OF_MONTH);
 
-    public void onClick () {
-        mPresentSale = findViewById(R.id.presentSalesAmount);
-        preSale = Integer.parseInt(mPresentSale.getText().toString());
+                salesPerDay = totSale/amountOfDays;
+                mDateSales = salesPerDay * presentDate;
+                int difference = ((mDateSales - preSale) * -1);
+                String text = "щоденне виконання має складати: " + salesPerDay + "\n" + "продажі на дату мають бути: " + mDateSales;
 
-        mTotalSale = findViewById(R.id.totalSalesAmount);
-        totSale = Integer.parseInt(mTotalSale.getText().toString());
-
-        presentDate = Calendar.getInstance().get(Calendar.DATE);
-        amountOfDays = Calendar.getInstance().getActualMaximum(Calendar.DAY_OF_MONTH);
-
-        SalesPerDay = totSale/amountOfDays;
-        mDateSales = SalesPerDay * presentDate;
-        int difference = ((mDateSales - preSale) * -1);
-
-        mToast = findViewById(R.id.toast);
-        mToast.setVisibility(View.VISIBLE);
+                mToast = findViewById(R.id.toast);
+                mToast.setVisibility(View.VISIBLE);
+                mToast.setText(text);
+            }
+        });
     }
 }
