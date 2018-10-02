@@ -3,6 +3,7 @@ package com.teamo.pointslicer;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -12,28 +13,40 @@ import java.util.Calendar;
 public class CalcActivity extends Activity{
     private EditText mPresentSale;
     private EditText mTotalSale;
+    private Button mButton;
     private TextView mToast;
+
+    private int preSale;
+    private int totSale;
+    private int presentDate;
+    private int amountOfDays;
+    private int SalesPerDay;
+    private int mDateSales;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calc);
 
+        mPresentSale = findViewById(R.id.presentSalesAmount);
+        mTotalSale = findViewById(R.id.totalSalesAmount);
+        mButton = findViewById(R.id.calculate);
+
         onClick();
     }
 
     public void onClick () {
         mPresentSale = findViewById(R.id.presentSalesAmount);
-        int preSale = Integer.parseInt(mPresentSale.getText().toString());
+        preSale = Integer.parseInt(mPresentSale.getText().toString());
 
         mTotalSale = findViewById(R.id.totalSalesAmount);
-        int totSale = Integer.parseInt(mTotalSale.getText().toString());
+        totSale = Integer.parseInt(mTotalSale.getText().toString());
 
-        int presentDate = Calendar.getInstance().get(Calendar.DATE);
-        int amountOfDays = Calendar.getInstance().getActualMaximum(Calendar.DAY_OF_MONTH);
+        presentDate = Calendar.getInstance().get(Calendar.DATE);
+        amountOfDays = Calendar.getInstance().getActualMaximum(Calendar.DAY_OF_MONTH);
 
-        int SalesPerDay = totSale/amountOfDays;
-        int mDateSales = SalesPerDay * presentDate;
+        SalesPerDay = totSale/amountOfDays;
+        mDateSales = SalesPerDay * presentDate;
         int difference = ((mDateSales - preSale) * -1);
 
         mToast = findViewById(R.id.toast);
