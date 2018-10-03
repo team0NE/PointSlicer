@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.Calendar;
 
 
@@ -16,12 +18,12 @@ public class CalcActivity extends Activity{
     private Button mButton;
     private TextView mToast;
 
-    private int preSale;
-    private int totSale;
+    private double preSale;
+    private double totSale;
     private int presentDate;
     private int amountOfDays;
-    private int salesPerDay;
-    private int mDateSales;
+    private double salesPerDay;
+    private double mDateSales;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,15 +36,20 @@ public class CalcActivity extends Activity{
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                DecimalFormat df = new DecimalFormat("#.##");
+                df.setRoundingMode(RoundingMode.CEILING);
+
                 preSale = Integer.parseInt(mPresentSale.getText().toString());
-                totSale = Integer.parseInt(mTotalSale.getText().toString());
+                preSale = Math.round(preSale * 100d)/100d;//(double)Math.round(value * 100000d) / 100000d
+                totSale = Double.parseDouble(mTotalSale.getText().toString());// over the DecimalFormat
+                totSale = Double.parseDouble(df.format(totSale));
 
                 presentDate = Calendar.getInstance().get(Calendar.DATE);
                 amountOfDays = Calendar.getInstance().getActualMaximum(Calendar.DAY_OF_MONTH);
 
                 salesPerDay = totSale/amountOfDays;
                 mDateSales = salesPerDay * presentDate;
-                int difference = ((mDateSales - preSale) * -1);
+                double difference = ((mDateSales - preSale) * -1);
                 String text = "щоденне виконання має складати: " + salesPerDay + "\n" + "продажі на дату мають бути: " + mDateSales;
 
                 mToast = findViewById(R.id.toast);
@@ -52,3 +59,10 @@ public class CalcActivity extends Activity{
         });
     }
 }
+
+// finish DecimalFormat
+//finish input fields
+// To do result activity
+// To do clipboard method
+
+// how todo work?

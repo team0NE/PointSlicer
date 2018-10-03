@@ -51,7 +51,6 @@
         android:layout_gravity="center"
         android:layout_marginTop="100dp"
         android:text="@string/calculate"/>
-        <!--android:onClick="onClick"-->
 
     <TextView
         android:id="@+id/toast"

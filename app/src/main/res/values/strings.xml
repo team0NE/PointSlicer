@@ -5,4 +5,11 @@
     <string name="empty">0</string>
     <string name="calculate">Порахувати</string>
     <string name="toast"></string>
+
+    <string name="date_sales">На кінець дня сума має складати: </string>
+    <string name="difference">Різниця(відставання\випередження): </string>
+    <string name="required_increase">Потрібний приріст: </string>
+    <string name="back_button">Back</string>
+    <string name="clipboard">Clpboard</string>
+    <string name="test">000</string>
 </resources>
