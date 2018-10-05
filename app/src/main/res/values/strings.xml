@@ -9,7 +9,15 @@
     <string name="date_sales">На кінець дня сума має складати: </string>
     <string name="difference">Різниця(відставання\випередження): </string>
     <string name="required_increase">Потрібний приріст: </string>
+    <string name="city_text_view">Оберіть місто</string>
+    <string-array name="city_chooser">
+        <item1>Львів</item1>
+        <item2>Одеса</item2>
+        <item3>Херсон</item3>
+        <item4>Хмильницький</item4>
+    </string-array>
     <string name="back_button">Back</string>
+    <string name="exit_button">EXT</string>
     <string name="clipboard">Clpboard</string>
     <string name="test">000</string>
 </resources>

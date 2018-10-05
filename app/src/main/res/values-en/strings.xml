@@ -4,4 +4,5 @@
     <string name="input_present_value_view">Please, enter your sales amount</string>
     <string name="toast">Done!</string>
     <string name="calculate">Calculate</string>
+    <string name="empty">0</string>
 </resources>
