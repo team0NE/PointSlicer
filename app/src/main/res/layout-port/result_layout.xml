@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/date_sales"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/date_sales"
+        android:textStyle="bold|italic"
+        android:textSize="20sp"
+        android:layout_marginTop="30dp"/>
+
+    <TextView
+        android:id="@+id/date_sales_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/test"
+        android:textStyle="italic"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:id="@+id/difference"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/difference"
+        android:textStyle="bold|italic"
+        android:textSize="20sp"
+        android:layout_marginTop="30dp"/>
+
+    <TextView
+        android:id="@+id/difference_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/test"
+        android:textStyle="italic"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:id="@+id/required_increase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/required_increase"
+        android:textStyle="bold|italic"
+        android:textSize="20sp"
+        android:layout_marginTop="30dp"/>
+
+    <TextView
+        android:id="@+id/required_increase_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/test"
+        android:textStyle="italic"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp">
+
+    <TextView
+        android:id="@+id/city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold|italic"
+        android:textSize="20sp"
+        android:text="@string/city_text_view"/>
+
+    <Spinner
+        android:id="@+id/city_chooser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10">
+
+    </Spinner>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="100dp">
+
+        <Button
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/back_button"
+            android:textStyle="italic"
+            android:textSize="20sp"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/exit_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/exit_button"
+            android:textStyle="italic"
+            android:textSize="20sp"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/clipboard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/clipboard"
+            android:textStyle="italic"
+            android:textSize="20sp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+</LinearLayout>
