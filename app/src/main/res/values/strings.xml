@@ -2,22 +2,25 @@
     <string name="app_name" translatable="false">PointSlicer</string>
     <string name="input_present_value_view">Будь ласка, вкажіть суму продажів, яка є на поточну дату</string>
     <string name="input_total_value_view">Вкаєіть місячний план продажів</string>
-    <string name="empty">0</string>
-    <string name="calculate">Порахувати</string>
-    <string name="toast"></string>
-
-    <string name="date_sales">На кінець дня сума має складати: </string>
-    <string name="difference">Різниця(відставання\випередження): </string>
-    <string name="required_increase">Потрібний приріст: </string>
     <string name="city_text_view">Оберіть місто</string>
+    <string name="calculate_date">Порахувати на поточну дату</string>
+    <string name="calculate_month">Розрахувати місяць</string>
+
+    <string name="sales_per_day">Щоденна сума продажів має складати: </string>
+    <string name="date_sales">На кінець дня сума має складати: </string>
+    <string name="difference_lag">Відставання складає: </string>
+    <string name="difference_advance">Випередження складає: </string>
+    <string name="difference_null">Різниці немає - </string>
+    <string name="congratulations">Ти молодець!</string>
     <string-array name="city_chooser">
-        <item1>Львів</item1>
-        <item2>Одеса</item2>
-        <item3>Херсон</item3>
-        <item4>Хмильницький</item4>
+        <item>Львів</item>
+        <item>Одеса</item>
+        <item>Херсон</item>
+        <item>Хмильницький</item>
     </string-array>
-    <string name="back_button">Back</string>
-    <string name="exit_button">EXT</string>
     <string name="clipboard">Clpboard</string>
-    <string name="test">000</string>
+
+    <string name="final_sales_amount">Остаточна сумма складає: </string>
+    <string name="final_required_amount">Місячний план продажів складає: </string>
+    <string name="final_percent">Процент виконання складає: </string>
 </resources>

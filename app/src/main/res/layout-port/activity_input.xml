@@ -20,7 +20,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
-        android:text="@string/empty"
         android:ems="10"
         android:inputType="numberDecimal"/>
 
@@ -40,23 +39,50 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
-        android:text="@string/empty"
         android:ems="10"
         android:inputType="number"/>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp">
+
+        <TextView
+            android:id="@+id/city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold|italic"
+            android:textSize="20sp"
+            android:text="@string/city_text_view"/>
+
+        <Spinner
+            android:id="@+id/city_chooser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/city_chooser"
+            android:ems="10">
+
+        </Spinner>
+
+    </LinearLayout>
+
     <Button
-        android:id="@+id/calculate"
+        android:id="@+id/calculate_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="100dp"
-        android:text="@string/calculate"/>
+        android:text="@string/calculate_date"
+        android:onClick="sendInput"/>
 
-    <TextView
-        android:id="@+id/toast"
+    <Button
+        android:id="@+id/calculate_month"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/toast"
-        android:visibility="invisible"/>
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="@string/calculate_month"
+        android:onClick="calculateFinal"/>
 
 </LinearLayout>
