@@ -14,6 +14,7 @@ public class DailyResultActivity extends AppCompatActivity {
     private int amountOfDays;
     private double salesPerDay;
     private double requiredAmount;
+    private double difference;
 
     private double presentSale;
     private double totalSale;
@@ -28,14 +29,21 @@ public class DailyResultActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.daily_result_layout);
+        if(savedInstanceState != null) {
+            presentSale = savedInstanceState.getDouble("presentSale", presentSale);
+            totalSale = savedInstanceState.getDouble("totalSale", totalSale);
+            salesPerDay = savedInstanceState.getDouble("salesPerDay", salesPerDay);
+            requiredAmount = savedInstanceState.getDouble("requiredAmount", requiredAmount);
+            difference = savedInstanceState.getDouble("difference", difference);
+        }
 
         DecimalFormat df = new DecimalFormat("#.##");
         df.setRoundingMode(RoundingMode.CEILING);
 
-        Intent reciveIntent = this.getIntent();
-        presentSale = reciveIntent.getDoubleExtra("presentSale", presentSale);
+        Intent receiveIntent = this.getIntent();
+        presentSale = receiveIntent.getDoubleExtra("presentSale", presentSale);
         presentSale = Double.parseDouble(df.format(presentSale));
-        totalSale = reciveIntent.getDoubleExtra("totalSale", totalSale);
+        totalSale = receiveIntent.getDoubleExtra("totalSale", totalSale);
         totalSale = Double.parseDouble(df.format(totalSale));
 
         //replace from input to here. some logic change
@@ -50,7 +58,7 @@ public class DailyResultActivity extends AppCompatActivity {
         twRequiredAmount = findViewById(R.id.date_sales_result);
         twRequiredAmount.setText(String.valueOf(requiredAmount));
 
-        double difference = Double.parseDouble(df.format(((requiredAmount - presentSale) * -1)));
+        difference = Double.parseDouble(df.format(((requiredAmount - presentSale) * -1)));
 
         if (requiredAmount > presentSale) {
             twDifference = findViewById(R.id.difference);
@@ -78,10 +86,19 @@ public class DailyResultActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putDouble("presentSaleBundle", presentSale);
+        savedInstanceState.putDouble("totalSaleBundle", totalSale);
+        savedInstanceState.putDouble("salesPerDay", salesPerDay);
+        savedInstanceState.putDouble("requiredAmount", requiredAmount);
+        savedInstanceState.putDouble("difference", difference);
+    }
 }
-// TODO: 19.10.2018 do Bundle
-//  finished:
+// Done:
 // DecimalFormat
 // Finish DailyResultActivity. difference tw and requiredBoost tw
 // Change colors to red\green
 // 18.10.2018 kill cityChooser 18.10.2018
+// 19.10.2018 do Bundle 21.10.2018

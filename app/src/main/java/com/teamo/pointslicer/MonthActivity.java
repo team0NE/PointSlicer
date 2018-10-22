@@ -16,19 +16,24 @@ public class MonthActivity extends Activity{
     private double percent;
     private String cityChoice;
     private String fullAddress;
-    private String message;
+    private String monthReport;
 
     TextView twFinalSalesAmountResult;
     TextView twFinalRequiredAmountResult;
     TextView twFinalPercentResult;
 
 
-    public static final String EXTRA_MESSAGE = "message";
+    public static final String EXTRA_CITY = "cityChoice";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.month_result_layout);
+        if(savedInstanceState != null) {
+            presentSale = savedInstanceState.getDouble("presentSale", presentSale);
+            totalSale = savedInstanceState.getDouble("totalSale", totalSale);
+            percent = savedInstanceState.getDouble("percent", percent);
+        }
 
         DecimalFormat df = new DecimalFormat("#.##");
         df.setRoundingMode(RoundingMode.CEILING);
@@ -38,7 +43,7 @@ public class MonthActivity extends Activity{
         presentSale = Double.parseDouble(df.format(presentSale));
         totalSale = receiveIntent.getDoubleExtra("totalSale", totalSale);
         totalSale = Double.parseDouble(df.format(totalSale));
-        cityChoice = receiveIntent.getStringExtra(EXTRA_MESSAGE);
+        cityChoice = receiveIntent.getStringExtra(EXTRA_CITY);
 
         percent = Double.parseDouble(df.format((presentSale/totalSale) * 100));
 
@@ -53,10 +58,18 @@ public class MonthActivity extends Activity{
 
         fullAddress = setFullAddress(cityChoice);
 
-        message = fullAddress + " Факт: " + presentSale + ". " + "План: " + totalSale + ". " + "Процент виконання: " + percent + "%";
+        monthReport = fullAddress + " Факт: " + presentSale + ". " + "План: " + totalSale + ". " + "Процент виконання: " + percent + "%";
 
         TextView massageTest = findViewById(R.id.massage_test);
-        massageTest.setText(message);
+        massageTest.setText(monthReport);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putDouble("presentSaleBundle", presentSale);
+        savedInstanceState.putDouble("totalSaleBundle", totalSale);
+        savedInstanceState.putDouble("percent", percent);
     }
 
     public String setFullAddress(String cityChoice) {
@@ -76,11 +89,11 @@ public class MonthActivity extends Activity{
     public void sendMSG(View view) {
         Intent viberIntent = new Intent(Intent.ACTION_SEND);
         viberIntent.setType("text/plain");
-        viberIntent.putExtra(Intent.EXTRA_TEXT, message);
+        viberIntent.putExtra(Intent.EXTRA_TEXT, monthReport);
         startActivity(viberIntent);
     }
 }
-// TODO: 19.10.2018 do Bundle
 // Done:
-// 14.10.2018 tw with a result string, to check the message
-//05.10.2018 clipboard method send to viber 18.10.2018
+// 14.10.2018 tw with a result string, to check the monthReport
+// 05.10.2018 clipboard method send to viber 18.10.2018
+// 19.10.2018 do Bundle 21.10.2018

@@ -5,6 +5,8 @@
     <string name="city_text_view">Оберіть місто</string>
     <string name="calculate_date">Порахувати на поточну дату</string>
     <string name="calculate_month">Розрахувати місяць</string>
+    <string name="you_forgot_input_present">Треба ввести поточні продажі</string>
+    <string name="you_forgot_input_total">Треба ввести місячний план</string>
 
     <string name="sales_per_day">Щоденна сума продажів має складати: </string>
     <string name="date_sales">На кінець дня сума має складати: </string>
@@ -18,7 +20,7 @@
         <item>Херсон</item>
         <item>Хмильницький</item>
     </string-array>
-    <string name="clipboard">Clpboard</string>
+    <string name="clipboard">SND to RM</string>
 
     <string name="final_sales_amount">Остаточна сумма складає: </string>
     <string name="final_required_amount">Місячний план продажів складає: </string>
