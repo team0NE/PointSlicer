@@ -6,8 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import java.math.RoundingMode;
-import java.text.DecimalFormat;
+import java.util.Locale;
 
 
 public class MonthActivity extends Activity{
@@ -35,30 +34,34 @@ public class MonthActivity extends Activity{
             percent = savedInstanceState.getDouble("percent", percent);
         }
 
-        DecimalFormat df = new DecimalFormat("#.##");
-        df.setRoundingMode(RoundingMode.CEILING);
-
         Intent receiveIntent = this.getIntent();
         presentSale = receiveIntent.getDoubleExtra("presentSale", presentSale);
-        presentSale = Double.parseDouble(df.format(presentSale));
+        String presentSaleStr = String.format(Locale.FRANCE, "%.2f", presentSale);
         totalSale = receiveIntent.getDoubleExtra("totalSale", totalSale);
-        totalSale = Double.parseDouble(df.format(totalSale));
+        String totalSaleStr = String.format(Locale.FRANCE, "%.2f", totalSale);
         cityChoice = receiveIntent.getStringExtra(EXTRA_CITY);
 
-        percent = Double.parseDouble(df.format((presentSale/totalSale) * 100));
+        percent = (presentSale/totalSale);
+        String percentStr = String.format(Locale.FRANCE,"%.2f", percent) + "%";
+
+        /*
+        salesPerDay = (totalSale/amountOfDays);
+        String salesPerDayStr = String.format("%.2f", salesPerDay);
+        salesPerDay = Double.parseDouble(salesPerDayStr);
+        */
 
         twFinalSalesAmountResult = findViewById(R.id.final_month_amount_result);
-        twFinalSalesAmountResult.setText(String.valueOf(presentSale));
+        twFinalSalesAmountResult.setText(presentSaleStr);
 
         twFinalRequiredAmountResult = findViewById(R.id.final_required_sales_amount_result);
-        twFinalRequiredAmountResult.setText(String.valueOf(totalSale));
+        twFinalRequiredAmountResult.setText(totalSaleStr);
 
         twFinalPercentResult = findViewById(R.id.final_percent_result);
-        twFinalPercentResult.setText(String.valueOf(percent));
+        twFinalPercentResult.setText(String.valueOf(percentStr));
 
         fullAddress = setFullAddress(cityChoice);
 
-        monthReport = fullAddress + " Факт: " + presentSale + ". " + "План: " + totalSale + ". " + "Процент виконання: " + percent + "%";
+        monthReport = fullAddress + " Факт: " + presentSaleStr + ". " + "План: " + totalSaleStr + ". " + "Процент виконання: " + percentStr;
 
         TextView massageTest = findViewById(R.id.massage_test);
         massageTest.setText(monthReport);

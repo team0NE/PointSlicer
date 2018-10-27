@@ -3,7 +3,7 @@
     <string name="input_present_value_view">Будь ласка, вкажіть суму продажів, яка є на поточну дату</string>
     <string name="input_total_value_view">Вкаєіть місячний план продажів</string>
     <string name="city_text_view">Оберіть місто</string>
-    <string name="calculate_date">Порахувати на поточну дату</string>
+    <string name="calculate_date">Порахувати суму на поточну дату</string>
     <string name="calculate_month">Розрахувати місяць</string>
     <string name="you_forgot_input_present">Треба ввести поточні продажі</string>
     <string name="you_forgot_input_total">Треба ввести місячний план</string>
@@ -13,16 +13,16 @@
     <string name="difference_lag">Відставання складає: </string>
     <string name="difference_advance">Випередження складає: </string>
     <string name="difference_null">Різниці немає - </string>
-    <string name="congratulations">Ти молодець!</string>
     <string-array name="city_chooser">
         <item>Львів</item>
         <item>Одеса</item>
         <item>Херсон</item>
         <item>Хмильницький</item>
     </string-array>
-    <string name="clipboard">SND to RM</string>
+    <string name="clipboard" translatable="false">SND to RM</string>
 
-    <string name="final_sales_amount">Остаточна сумма складає: </string>
     <string name="final_required_amount">Місячний план продажів складає: </string>
     <string name="final_percent">Процент виконання складає: </string>
+    <string name="congratulations">Ти молодець!</string>
+    <string name="final_sales_amount">Остаточна сумма складає:</string>
 </resources>

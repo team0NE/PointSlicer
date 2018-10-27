@@ -9,8 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import java.math.RoundingMode;
-import java.text.DecimalFormat;
+import java.util.Locale;
 
 
 public class InputActivity extends Activity{
@@ -39,9 +38,17 @@ public class InputActivity extends Activity{
         mButtonPresent = findViewById(R.id.calculate_date);
         mButtonPresent.setOnClickListener(new View.OnClickListener() {
 
+            String presentSaleStr = etPresentSale.getText().toString();
+            String totalSaleStr = etTotalSale.getText().toString();
             @Override
             public void onClick(View v) {
-                if (testInputFields()) return;
+                if (etPresentSale.getText().toString().isEmpty()) {
+                    etPresentSale.setError(getResources().getString(R.string.you_forgot_input_present));
+                    return;
+                }else if (etTotalSale.getText().toString().isEmpty()) {
+                    etTotalSale.setError(getResources().getString(R.string.you_forgot_input_total));
+                    return;
+                }
                 setInput();
 
                 Intent intent = new Intent(InputActivity.this, DailyResultActivity.class);
@@ -56,7 +63,13 @@ public class InputActivity extends Activity{
 
             @Override
             public void onClick(View v) {
-                if (testInputFields()) return;
+                if (etPresentSale.getText().toString().isEmpty()) {
+                    etPresentSale.setError(getResources().getString(R.string.you_forgot_input_present));
+                    return;
+                }else if (etTotalSale.getText().toString().isEmpty()) {
+                    etTotalSale.setError(getResources().getString(R.string.you_forgot_input_total));
+                    return;
+                }
                 setInput();
 
                 Intent intent = new Intent(InputActivity.this, MonthActivity.class);
@@ -68,17 +81,6 @@ public class InputActivity extends Activity{
         });
     }
 
-    private boolean testInputFields() {
-        if (etPresentSale.getText().toString().isEmpty()) {
-            etPresentSale.setError(String.valueOf(R.string.you_forgot_input_present));
-            if (etTotalSale.getText().toString().isEmpty()) {
-                etTotalSale.setError(String.valueOf(R.string.you_forgot_input_total));
-                return true;
-            }
-            return true;
-        }
-        return false;
-    }
 
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
@@ -87,14 +89,14 @@ public class InputActivity extends Activity{
         savedInstanceState.putDouble("totalSale", totalSale);
     }
 
-    private void setInput() {
-        DecimalFormat df = new DecimalFormat("#.##");
-        df.setRoundingMode(RoundingMode.CEILING);
+    public void setInput() {
+        /*DecimalFormat df = new DecimalFormat("#######0,##");
+        df.setRoundingMode(RoundingMode.CEILING);*/
 
-        presentSale = Double.parseDouble(etPresentSale.getText().toString());
-        presentSale = Double.parseDouble(df.format(presentSale));      //Math.round(presentSale * 100d)/100d; <-- (double)Math.round(value * 100000d) / 100000d
-        totalSale = Double.parseDouble(etTotalSale.getText().toString());// over the DecimalFormat
-        totalSale = Double.parseDouble(df.format(totalSale));
+        presentSale = Double.parseDouble(String.format(Locale.FRANCE,etPresentSale.getText().toString()));
+        //presentSale = Double.parseDouble(df.format(presentSale));      //Math.round(presentSale * 100d)/100d; <-- (double)Math.round(value * 100000d) / 100000d
+        totalSale = Double.parseDouble(String.format(Locale.FRANCE, etTotalSale.getText().toString()));// over the DecimalFormat
+        //totalSale = Double.parseDouble(df.format(totalSale));
         mSpinner = findViewById(R.id.city_chooser);
         cityChoice = String.valueOf(mSpinner.getSelectedItem());
     }

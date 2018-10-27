@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="input_present_value_view">Please, enter a present sales amount</string>
+    <string name="input_total_value_view">Enter a total sales amount</string>
+    <string name="city_text_view">Choose your city</string>
+    <string name="calculate_date">Calculate the amount for the current date</string>
+    <string name="calculate_month">Calculate the month</string>
+    <string name="you_forgot_input_present">You forgot to input a present seles amount</string>
+    <string name="you_forgot_input_total">You forgot to input a total seles amount</string>
+    <string name="sales_per_day">The daily sales amount should be:</string>
+    <string name="date_sales">At the end of the day the amount should be:</string>
+    <string name="difference_lag">Lack is:</string>
+    <string name="difference_advance">Advance is:</string>
+    <string name="difference_null">There is no difference</string>
+    <string name="congratulations">You are good!</string>
+    <string name="final_sales_amount">The final amount is:</string>
+    <string name="final_required_amount">The monthly sales amount is:</string>
+    <string name="final_percent">The percentage of execution is:</string>
+</resources>
