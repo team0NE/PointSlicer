@@ -101,6 +101,7 @@ public class InputActivity extends Activity{
         cityChoice = String.valueOf(mSpinner.getSelectedItem());
     }
 }
+// TODO: 30.10.2018 notifications rollUp. hint, floatingLabels
 // Done:
 // result activity
 // finished input fields

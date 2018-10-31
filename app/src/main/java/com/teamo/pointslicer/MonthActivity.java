@@ -41,7 +41,7 @@ public class MonthActivity extends Activity{
         String totalSaleStr = String.format(Locale.FRANCE, "%.2f", totalSale);
         cityChoice = receiveIntent.getStringExtra(EXTRA_CITY);
 
-        percent = (presentSale/totalSale);
+        percent = (presentSale/totalSale) * 100;
         String percentStr = String.format(Locale.FRANCE,"%.2f", percent) + "%";
 
         /*
@@ -96,6 +96,7 @@ public class MonthActivity extends Activity{
         startActivity(viberIntent);
     }
 }
+// TODO: 30.10.2018 specMethod for viberSend
 // Done:
 // 14.10.2018 tw with a result string, to check the monthReport
 // 05.10.2018 clipboard method send to viber 18.10.2018

@@ -1,77 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/final_month_amount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/final_sales_amount"
-        android:textStyle="bold|italic"
-        android:textSize="20sp"
-        android:layout_marginTop="30dp"/>
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="5sp"
+    >
 
-    <TextView
-        android:id="@+id/final_month_amount_result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="italic"
-        android:textSize="20sp"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center"/>
-
-    <TextView
-        android:id="@+id/final_required_sales_amount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/final_required_amount"
-        android:textStyle="bold|italic"
-        android:textSize="20sp"
-        android:layout_marginTop="30dp"/>
-
-    <TextView
-        android:id="@+id/final_required_sales_amount_result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="italic"
-        android:textSize="20sp"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center"/>
-
-    <TextView
-        android:id="@+id/final_percent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/final_percent"
-        android:textStyle="bold|italic"
-        android:textSize="20sp"
-        android:layout_marginTop="30dp"/>
-
-    <TextView
-        android:id="@+id/final_percent_result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="italic"
-        android:textSize="20sp"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center"/>
-
-    <TextView
-        android:id="@+id/massage_test"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="italic"
-        android:textSize="20sp"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center"/>
-
-    <Button
-        android:id="@+id/clpboard"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/clipboard"
-        android:textStyle="italic"
-        android:textSize="20sp"
-        android:onClick="sendMSG"/>
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <TextView
+            android:id="@+id/final_month_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/final_sales_amount"
+            android:textStyle="bold|italic"
+            android:textSize="20sp" />
 
+        <TextView
+            android:id="@+id/final_month_amount_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:textSize="20sp"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <TextView
+            android:id="@+id/final_required_sales_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/final_required_amount"
+            android:textStyle="bold|italic"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/final_required_sales_amount_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:textSize="20sp"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <TextView
+            android:id="@+id/final_percent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/final_percent"
+            android:textStyle="bold|italic"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/final_percent_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:textSize="20sp"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5">
+        <TextView
+            android:id="@+id/massage_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:textSize="20sp"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5">
+        <Button
+            android:id="@+id/clpboard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/clipboard"
+            android:textStyle="italic"
+            android:textSize="20sp"
+            android:onClick="sendMSG"/>
+
+    </LinearLayout>
 </LinearLayout>
