@@ -41,7 +41,7 @@ public class MonthActivity extends Activity{
         String totalSaleStr = String.format(Locale.FRANCE, "%.2f", totalSale);
         cityChoice = receiveIntent.getStringExtra(EXTRA_CITY);
 
-        percent = (presentSale/totalSale) * 100;
+        percent = (presentSale/totalSale) * 100d;
         String percentStr = String.format(Locale.FRANCE,"%.2f", percent) + "%";
 
         /*
